@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+module UCS
+
+  def self.tr character_map, character_stream
+
+    character_stream.each_char do |character|
+      print character_map[character] || character
+    end
+  end
+end
+
+if __FILE__ == $0
+
+  source_character_map = ARGV.shift.each_char.to_a
+  target_character_map = ARGV.shift.each_char.to_a
+  character_stream = ARGF
+  
+  character_map = Hash[source_character_map.zip target_character_map]
+  
+  UCS.tr character_map, character_stream
+end

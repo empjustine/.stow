@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#git change-author "Name" "e.mail@hostname.com"
+git commit --amend --author "$1 <$2>" -C HEAD

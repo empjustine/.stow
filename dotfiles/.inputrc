@@ -1,0 +1,86 @@
+# ~/.inputrc
+# ====
+
+# Input
+# =====
+
+# Allow 8-bit input
+set meta-flag on
+set input-meta on
+
+# Turns off 8th bit stripping
+set convert-meta off
+# Keep the 8th bit for display
+set output-meta on
+
+# Make sure we don't output everything on the 1 line
+set horizontal-scroll-mode off
+
+# Bell
+# ====
+
+# none, visible or audible
+set bell-style visible
+# Avoid audible bell, do visual notification instead
+set prefer-visible-bell
+
+
+# Completion settings
+# ===================
+
+set expand-tilde off
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Hide files unless the pattern explicitly begins with a dot
+set match-hidden-files off
+
+# Whenever to page or show all autocomplete results at once
+set page-completions off
+# If there are more than X possible completions for a word, ask to show them all
+set completion-query-items 200
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case off
+
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Show extra file information when completing, like `ls -F` does
+set visible-stats on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
+set editing-mode emacs
+
+# Linux Console
+# =============
+
+# home-end keys
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# pageup-pagedown
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+
+# delete-insert
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+
+# arrow up-down
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# XTerm
+# =====
+
+"\eOH": beginning-of-line
+"\eOF": end-of-line

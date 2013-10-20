@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require 'open-uri'
+require 'nokogiri'
+require 'terminal-table'
+
+ERROR_TITLE = '<td>Network Error                                      </td>'
+ERROR_MESSAGE = "<table><tr><td>00:00:00</td>#{ERROR_TITLE}<td>[00:00/00:00]</td></tr></table>"
+
+loop {
+  request = open 'http://rob.kohina.net/refresh.php' rescue nil
+  nodeset = Nokogiri::HTML request || ERROR_MESSAGE
+
+  terminal_table = Terminal::Table.new { |table|
+
+    nodeset.search('//table/tr').each { |row|
+      table_row = row.children.map { |data|
+        data.content.to_s.gsub(/(^\[)|(\]$)/, '').scan(/.{51}|.+/).join("\n")
+      }
+
+      on_air = table_row.first == 'On air:'
+
+      table << :separator if on_air
+      table << table_row
+      table << :separator if on_air
+    }
+  }
+
+  {
+    0 => :right, # 00:00:00 (size 8)
+    1 => :left,  # name (size 80 - 8 - 13 - (2 + 3 + 3 + 2) + 2 = 51)
+    2 => :right, # [00:00/00:00] (size 13 - 2)
+  }.each { |column, align|
+    terminal_table.align_column column, align
+  }
+
+  puts `reset`
+  puts terminal_table
+
+  sleep 30
+}

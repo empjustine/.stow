@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cat ${XDG_CONFIG_HOME}/Xresources/* >${XDG_RUNTIME_DIR}/Xresources
+xrdb -cpp /usr/bin/cpp -merge ${XDG_RUNTIME_DIR}/Xresources

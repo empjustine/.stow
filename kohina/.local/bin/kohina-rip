@@ -1,0 +1,5 @@
+#!/bin/sh
+
+streamripper http://kohina.radio.ethz.ch:8000/kohina.ogg \
+  -r 8000 \
+  -d ~/Downloads/kohina

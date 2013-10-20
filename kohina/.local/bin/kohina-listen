@@ -1,0 +1,5 @@
+#!/bin/sh
+
+vlc \
+  --intf dummy \
+  --quiet localhost:8000

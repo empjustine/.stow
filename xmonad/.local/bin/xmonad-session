@@ -1,0 +1,24 @@
+#!/bin/sh
+
+XMONAD_SESSION_NAME="xmonad"
+
+# variables telling who I am
+export DE=${XMONAD_SESSION_NAME}
+export DESKTOP_SESSION=${XMONAD_SESSION_NAME}
+export WM=${XMONAD_SESSION_NAME}
+
+. x-resources-database
+
+# disable pc speaker beep
+xset -b &
+
+# set DPI to "redmond" 96
+xrandr --dpi 96 &
+
+dex --autostart --environment xmonad
+
+XMONAD_PIPE="${XDG_RUNTIME_DIR}/xmonad.pipe"
+[ ! -p "${XMONAD_PIPE}" ] && mkfifo -m 600 "${XMONAD_PIPE}"
+
+dzen2 -ta l <"${XMONAD_PIPE}" &
+xmonad >"${XMONAD_PIPE}"

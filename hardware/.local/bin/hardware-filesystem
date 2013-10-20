@@ -1,0 +1,4 @@
+#!/bin/sh
+
+findmnt --all --list --output TARGET,UUID,FSTYPE,OPTIONS
+lsblk --all --list --output KNAME,TYPE,FSTYPE,SIZE,STATE,VENDOR,MODEL,REV,MAJ:MIN,UUID

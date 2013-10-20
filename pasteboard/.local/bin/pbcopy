@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# pbcopy
+# ======
+#
+# Provide copying to the pasteboard (the Clipboard) from command line.
+
+xclip -selection clipboard
+#xsel --clipboard --input

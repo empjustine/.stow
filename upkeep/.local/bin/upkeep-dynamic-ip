@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "rosetta-network-dhcpcd-start"
+sudo dhcpcd \
+  --nobackground \
+  --waitip
