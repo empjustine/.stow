@@ -1,0 +1,7 @@
+#!/bin/sh
+
+RUNCOM_FOLDER="$HOME/.config/runcom"
+
+pushd "$RUNCOM_FOLDER"
+stow --verbose=1 --target "$HOME" --restow *
+popd

@@ -2,23 +2,28 @@
 
 XMONAD_SESSION_NAME="xmonad"
 
-# variables telling who I am
 export DE=${XMONAD_SESSION_NAME}
 export DESKTOP_SESSION=${XMONAD_SESSION_NAME}
 export WM=${XMONAD_SESSION_NAME}
 
-. x-resources-database
+. /home/empjustine/.local/bin/upkeep-xresources
 
 # disable pc speaker beep
 xset -b &
 
 # set DPI to "redmond" 96
-xrandr --dpi 96 &
+#xrandr --dpi 96 &
 
-dex --autostart --environment xmonad
+#dex --autostart --environment xmonad
+
+xsetroot -cursor_name left_ptr &
+
+unclutter -idle 2 &
 
 XMONAD_PIPE="${XDG_RUNTIME_DIR}/xmonad.pipe"
-[ ! -p "${XMONAD_PIPE}" ] && mkfifo -m 600 "${XMONAD_PIPE}"
+rm -f "${XMONAD_PIPE}"
+mkfifo -m 600 "${XMONAD_PIPE}"
+[ ! -p "${XMONAD_PIPE}" ] || exit
 
 dzen2 -ta l <"${XMONAD_PIPE}" &
-xmonad >"${XMONAD_PIPE}"
+xmonad --replace >"${XMONAD_PIPE}"

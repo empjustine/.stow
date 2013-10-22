@@ -57,7 +57,7 @@ main = xmonad
        myKeyBindings
   where
     myTerminal    :: String
-    myTerminal     = "/usr/bin/uxterm"
+    myTerminal     = "/usr/bin/xterm"
 
     myBorderWidth :: Dimension
     myBorderWidth  = 1
