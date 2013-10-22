@@ -92,12 +92,6 @@ if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-function _update_ps1() {
-  export PS1="$(powerline-shell.py $?)"
-}
-
-export PROMPT_COMMAND="_update_ps1"
-
 if [ -f "$HOME/bin/gitfoo/git-shell-functions" ]; then
   . $HOME/bin/gitfoo/git-shell-functions
 fi
