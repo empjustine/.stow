@@ -1,4 +1,6 @@
 ! dzen2.font:     -*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*
-dzen2.font:       -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+! dzen2.font:     -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+! dzen2.font:       -*-*-medium-r-normal-*-*-140-*-*-c-*-iso10646-1
+dzen2.font:       Inconsolata-12
 dzen2.foreground: #839496
 dzen2.background: #002b36

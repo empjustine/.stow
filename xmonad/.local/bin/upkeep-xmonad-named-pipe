@@ -1,0 +1,11 @@
+#!/bin/sh
+
+XMONAD_NAMED_PIPE="${XDG_RUNTIME_DIR:-/run/user/$UID}/xmonad.stdout"
+rm -f "${XMONAD_NAMED_PIPE}"
+mkfifo -m 600 "${XMONAD_NAMED_PIPE}"
+
+if [ ! -p "${XMONAD_NAMED_PIPE}" ]; then
+	xmessage "upkeep-dzen2:
+	Unable to create named pipe at \"${XMONAD_NAMED_PIPE}\""
+fi
+

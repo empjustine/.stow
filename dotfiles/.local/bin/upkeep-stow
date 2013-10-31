@@ -1,7 +1,10 @@
 #!/bin/sh
 
-RUNCOM_FOLDER="$HOME/.config/runcom"
+pushd "${XDG_CONFIG_HOME:-$HOME/.config}/runcom"
+stow --target="$HOME" --restow *
+popd
 
-pushd "$RUNCOM_FOLDER"
-stow --verbose=1 --target "$HOME" --restow *
+
+pushd "$HOME/Private"
+stow --target="$HOME" --restow .profile
 popd

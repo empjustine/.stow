@@ -1,8 +1,9 @@
-# ~/.gitignore
-# ============
+# ~/config/.gitignore
+# ===================
 
 # Source:
 # git@github.com:github/gitignore.git
+
 
 # Global/Archives.gitignore
 # -------------------------
@@ -31,6 +32,7 @@
 *.deb
 *.rpm
 
+
 # Global/Linux.gitignore
 # ----------------------
 
@@ -38,12 +40,14 @@
 !.gitignore
 *~
 
+
 # Global/Mercurial.gitignore
 # ----------------------
 
 /.hg/*
 */.hg/*
 .hgignore
+
 
 # Global/vim.gitignore
 # --------------------
@@ -53,3 +57,29 @@
 Session.vim
 .netrwhist
 *~
+
+
+# Global/Windows.gitignore
+# ------------------------
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+
+# Global/VirtualEnv.gitignore
+# ---------------------------
+
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ss]cripts
+

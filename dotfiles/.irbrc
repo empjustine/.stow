@@ -5,13 +5,15 @@
 # vim:syntax=ruby
 
 
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+
+
 # Readline completion
 # -------------------
 
 require 'irb/completion'
 require 'irb/ext/save-history'
 
-ARGV.concat ["--readline", "--prompt-mode", "simple"]
 IRB.conf[:USE_READLINE] = true
 
 IRB.conf[:SAVE_HISTORY] = 10000
@@ -24,6 +26,12 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 require 'rubygems'
 require 'bundler/setup'
 
+
+# FileUtils
+# ---------
+
+require 'fileutils'
+Kernel.extend FileUtils
 
 # Verbosity
 # ---------

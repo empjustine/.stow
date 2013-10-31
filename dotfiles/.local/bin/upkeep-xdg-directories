@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# X Desktop Group Base Directories
+# --------------------------------
+#
+# http://standards.freedesktop.org/basedir-spec
+
+# User-specific data files
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+
+# User-specific configuration files
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+
+# User-specific data file search patch.
+export XDG_DATA_DIRS=${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}
+
+# User-specific configuration file search patch
+export XDG_CONFIG_DIRS=${XDG_CONFIG_DIRS:-/etc/xdg}
+
+# User-specific non-essential data
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+
+# User-specific runtime files and other file objects
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$UID}
+
+
+# X Desktop Group User Directories
+# --------------------------------
+#
+# man:xdg-user-dir
+# man:user-dirs.dirs
+
+source_user_dirs=${XDG_CONFIG_HOME:-$HOME/.config}/user-dirs
+target_user_dirs=${XDG_RUNTIME_DIR}/user-dirs.dirs
+if [ -f "${source_user_dirs}" ]; then
+  grep -v '^#' <${source_user_dirs} | sed 's/^/export ' >${target_user_dirs}
+  . ${target_user_dirs}
+fi

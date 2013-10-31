@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#xrandr \
+#	--dpi 96 &
+
+xset \
+	+dpms &
+xset \
+	dpms 0 0 300
+

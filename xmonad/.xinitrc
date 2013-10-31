@@ -13,10 +13,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
-
-exec xmonad-session
-# exec gnome-session
+. xmonad-session

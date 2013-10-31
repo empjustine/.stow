@@ -30,6 +30,7 @@ import qualified XMonad.Util.EZConfig
 import qualified Solarized
 
 import qualified Hooks
+import qualified ReciprocalRatio
 
 main = xmonad
      $ XMonad.Hooks.EwmhDesktops.ewmh
@@ -56,8 +57,8 @@ main = xmonad
        } `XMonad.Util.EZConfig.additionalKeys`
        myKeyBindings
   where
-    myTerminal    :: String
-    myTerminal     = "/usr/bin/xterm"
+    myTerminal :: String
+    myTerminal  = "/usr/bin/xterm"
 
     myBorderWidth :: Dimension
     myBorderWidth  = 1
@@ -102,7 +103,7 @@ main = xmonad
       ]
 
     hintedTile  = XMonad.Layout.HintedTile.HintedTile
-                    nmaster deltaRatio goldenRatio
+                    nmaster deltaRatio ReciprocalRatio.goldenRatio
                     XMonad.Layout.HintedTile.TopLeft
     named str   = XMonad.Layout.Renamed.renamed
                     [ XMonad.Layout.Renamed.Replace str ]
@@ -113,9 +114,11 @@ main = xmonad
     full        = named "FULL" $ Full
     code        = named "CODE" $ XMonad.Layout.FixedColumn.FixedColumn nmaster 20 80 10
 
+    nmaster    :: Int
     nmaster     = 1
+    deltaRatio :: Rational
     deltaRatio  = (5/100)
+    magniRatio :: Rational
     magniRatio  = 1.4
-    goldenRatio = (2/(1+(toRational(sqrt(5)::Double))))
 
     myLayoutHook = (code ||| mirror ||| tall ||| full)

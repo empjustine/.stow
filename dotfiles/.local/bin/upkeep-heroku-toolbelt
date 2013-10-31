@@ -1,0 +1,22 @@
+#!/bin/sh
+
+HEROKU_CLIENT_URL="https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz"
+
+USER_LOCAL="$HOME/.local/stow"
+
+echo rm -rf $USER_LOCAL/heroku-toolbelt
+echo mkdir -p $USER_LOCAL/heroku-toolbelt
+echo pushd $USER_LOCAL
+
+  echo pushd $USER_LOCAL/heroku-toolbelt
+
+    echo "curl -s $HEROKU_CLIENT_URL | tar xz"
+
+    echo mv heroku-client/* .
+    echo rmdir heroku-client
+
+  echo popd
+
+  echo stow heroku-toolbelt
+
+echo popd

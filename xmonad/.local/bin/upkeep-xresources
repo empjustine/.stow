@@ -1,4 +1,9 @@
 #!/bin/sh
 
-cat ${XDG_CONFIG_HOME:=$HOME/.config}/Xresources/* >${XDG_RUNTIME_DIR}/Xresources
-xrdb -cpp /usr/bin/cpp -merge ${XDG_RUNTIME_DIR}/Xresources
+cat \
+	${XDG_CONFIG_HOME:-$HOME/.config}/Xresources/* \
+	>${XDG_RUNTIME_DIR:-/run/user/$UID}/Xresources
+xrdb \
+	-cpp /usr/bin/cpp \
+	-merge ${XDG_RUNTIME_DIR}/Xresources
+
