@@ -8,8 +8,10 @@
 ! *VT100.utf8Fonts.font5: -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 ! *VT100.utf8Fonts.font6: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
 
-! xterm*font:      -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
-XTerm*faceName: Inconsolata
-XTerm*faceSize: 12
+xterm*font:               -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+
+! Nice but lacks unicode support this way
+! XTerm*faceName: Inconsolata
+! XTerm*faceSize: 12
 xterm*borderWidth: 0
 
