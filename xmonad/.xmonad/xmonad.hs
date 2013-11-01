@@ -22,6 +22,10 @@ import qualified XMonad.Layout.Renamed
 -- Smart borders
 import qualified XMonad.Layout.NoBorders
 
+-- hot corners
+import qualified XMonad.Hooks.ScreenCorners
+-- show workspace name
+import qualified XMonad.Layout.ShowWName
 
 -- Easy keybindings
 import qualified XMonad.Util.EZConfig
@@ -41,7 +45,8 @@ main = xmonad
        , terminal = myTerminal
 
        , layoutHook      = XMonad.Hooks.ManageDocks.avoidStruts
-                         $ XMonad.Layout.NoBorders.smartBorders myLayoutHook
+                         $ XMonad.Layout.NoBorders.smartBorders
+                         $ XMonad.Layout.ShowWName.showWName' myLayoutHook
        , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
      XMonad.ManageHook.<+> XMonad.Hooks.ManageDocks.docksEventHook
        , logHook         = Hooks.logHook
