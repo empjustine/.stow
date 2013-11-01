@@ -62,3 +62,13 @@ logHook = DynamicLog.dynamicLogWithPP
   , DynamicLog.ppWsSep           = ""
   , DynamicLog.ppSep             = " "
   }
+
+myManageHook = composeAll
+  [ isFullscreen --> doFullFloat
+  , isDialog     --> doCenterFloat
+  , appName =? "push_setup"           --> doCenterFloat
+  , appName =? "__console____o1____d" --> doCenterFloat
+  , appName =? "__console____o2____d" --> doCenterFloat
+  , appName =? "Download"             --> doCenterFloat
+  , manageHook defaultConfig
+  ]

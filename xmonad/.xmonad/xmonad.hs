@@ -46,7 +46,7 @@ main = xmonad
      XMonad.ManageHook.<+> XMonad.Hooks.ManageDocks.docksEventHook
        , logHook         = Hooks.logHook
        , manageHook      = XMonad.Hooks.ManageDocks.manageDocks
-     XMonad.ManageHook.<+> myManageHook
+     XMonad.ManageHook.<+> Hooks.myManageHook
 
        , workspaces      = myWorkspaceNames
 
@@ -91,16 +91,6 @@ main = xmonad
       ++
       myWorkspaceKeyBindings
 
-    myManageHook = composeAll
-   -- , isFullscreen --> doFullFloat
-   -- , isDialog     --> doCenterFloat
-      [ appName =? "push_setup"           --> doFloat -- git-gui push modal dialogs
-      , appName =? "__console____o2____d" --> doFloat
-      , appName =? "__console____o1____d" --> doFloat
-      , appName =? "Download"             --> doFloat -- firefox
-
-      , manageHook defaultConfig
-      ]
 
     hintedTile  = XMonad.Layout.HintedTile.HintedTile
                     nmaster deltaRatio ReciprocalRatio.goldenRatio

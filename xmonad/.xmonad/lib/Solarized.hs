@@ -3,9 +3,8 @@
 
 module Solarized where
 
--- Source:
--- ibotty/solarized-xmonad
-
+  -- Source:
+  -- ibotty/solarized-xmonad
 
   -- dark
 
