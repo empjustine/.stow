@@ -1,10 +1,19 @@
 #!/bin/sh
 
-pushd "${XDG_CONFIG_HOME:-$HOME/.config}/runcom"
+src="${XDG_CONFIG_HOME:-$HOME/.config}/runcom"
+
+pushd "$src" >/dev/null
+echo "inside $src"
 stow --target="$HOME" --restow *
-popd
+popd >/dev/null
 
 
-pushd "$HOME/Private"
-stow --target="$HOME" --restow .profile
-popd
+src="$HOME/Private"
+if [ -d "$src/.profile" ]; then
+  pushd "$src" >/dev/null
+  echo "inside $src"
+  stow --target="$HOME" --restow ".profile"
+  popd >/dev/null
+else
+  echo "missing: $HOME/Private/.profile"
+fi

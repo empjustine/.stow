@@ -4,24 +4,19 @@
 # Core applications
 export BROWSER="firefox"
 export EDITOR="vim"
-export PAGER="less"
-export MANPAGER="less -X"
 export VISUAL="vim"
 
-# Extra applications
-export TERMINAL="uxterm"
-export X_TERMINAL="uxterm"
-export MIXER="alsamixer"
+export GIT_EDITOR=$VISUAL
 
-# Git variables
-export GIT_EDITOR=$EDITOR
-
-
+export PAGER="less"
+export MANPAGER="less -X"
 export LESSCHARSET="utf-8"
 
 
 # Bash history
 # ============
+
+export HISTFILE=$HOME/Private/.profile/.bash_history
 
 # limitless ~/.bash_history
 unset HISTFILESIZE

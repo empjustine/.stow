@@ -83,3 +83,8 @@ $RECYCLE.BIN/
 [Ll]ib
 [Ss]cripts
 
+# Haskell
+# -------
+
+*.hi
+*.o
