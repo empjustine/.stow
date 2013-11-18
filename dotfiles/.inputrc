@@ -42,7 +42,7 @@ set page-completions off
 set completion-query-items 200
 
 # Make Tab autocomplete regardless of filename case
-set completion-ignore-case off
+set completion-ignore-case on
 
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
@@ -78,6 +78,10 @@ set editing-mode emacs
 # arrow up-down
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# Ctrl+delete
+"\e[3;3~": kill-word
+
 
 # XTerm
 # =====

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+devmon \
+  --internal \
+  --no-unmount \
+  --no-gui

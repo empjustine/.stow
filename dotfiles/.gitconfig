@@ -41,7 +41,7 @@
   whitespace = space-before-tab,trailing-space
 
   # System-wide .gitignore file
-  excludesfiles = /home/empjustine/.config/gitignore
+  excludesfiles = ~/.config/gitignore
 
   editor = vim
   pager = less -FRSX
@@ -55,6 +55,9 @@
   #   | 'matching' | Push all matching branches (default)               |
   #   | 'tracking' | Push the current branch to whatever it is tracking |
   #   | 'current'  | Push the current branch                            |
+  #
+  # When pushing without giving a refspec, push the current branch to its
+  # upstream branch.
   default = tracking
 
 [merge]
@@ -66,6 +69,8 @@
 
   tool = meld
 
+  # summary
+  log = true
 [diff]
   # Git diff will use "semantic" (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
@@ -73,6 +78,9 @@
 
   # Allow git diff to do basic rename and copy detection
   renames = copies
+
+  # Attempt to generate sane diffs
+  algorithm = patience
 
 [branch]
   # When branching off a remote branch, automatically let the local branch
@@ -90,15 +98,34 @@
 [alias]
   # Custom porcelain
 
+  #File level ignoring
+  assume   = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+  #checkout whole file
+  checkout-ours   = "!f() { git checkout --ours $@ &&   git add $@; }; f"
+  checkout-theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+  #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
+  recent-branches = !git for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
   s = status --short --branch
+  b = branch --verbose
+  r = remove --verbose
+  m = mergetool
+
+  cp = cherry-pick -x
 
   # Explicit behaviour of "git reset"
-  #
+
   # Source:
   # http://blog.plover.com/prog/git-reset.html
   move-head = reset --soft
   move-head-reset-index = reset
   move-head-reset-index-reset-tree = reset --hard
+
+  file-log = log --patch
 
   create-branch = branch
   create-branch-move-current-branch = checkout -b
@@ -108,6 +135,10 @@
   stash-list = stash list
   stash-drop = stash drop
   stash-clear = stash clear
+
+  diff-unstaged = diff
+  diff-staged = diff --cached
+  diff-commit = diff HEAD^
 
   # GitHub
   network = log --pretty=oneline --graph --branches=* --abbrev-commit --decorate

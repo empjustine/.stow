@@ -16,7 +16,8 @@ require 'irb/ext/save-history'
 
 IRB.conf[:USE_READLINE] = true
 
-IRB.conf[:SAVE_HISTORY] = 10000
+IRB.conf[:SAVE_HISTORY] = 1_000_000
+IRB.conf[:EVAL_HISTORY] = 2_000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 
 
@@ -42,3 +43,4 @@ Kernel.extend FileUtils
 
 $VERBOSE = true
 $DEBUG = true
+

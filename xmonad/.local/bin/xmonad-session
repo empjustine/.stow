@@ -11,16 +11,23 @@ export XDG_CURRENT_DESKTOP=${XMONAD_SESSION_NAME}
 . upkeep-keyboard
 . upkeep-pointer
 . upkeep-xmonad-named-pipe
+. upkeep-screen
 
 # disable pc speaker beep
 xset -b &
 
 #dex --autostart --environment xmonad
 
+env > ~/${XDG_RUNTIME_DIR:-/run/user/$UID}/xenv
+
 dzen2 \
 	-ta l \
 	<"${XMONAD_NAMED_PIPE}" &
 
-exec xmonad \
-	>"${XMONAD_NAMED_PIPE}"
+xmonad \
+	>"${XMONAD_NAMED_PIPE}" &
+export WMPID=$!
+
+# HANG POINT - wait for window manager to exit
+wait $WMPID
 

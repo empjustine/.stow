@@ -1,15 +1,14 @@
 -- ~/.xmonad/lib/Hooks.hs
 -- ======================
 
-module Hooks (logHook) where
+module Hooks where
 
 
+import qualified XMonad
 import qualified XMonad.ManageHook
 import qualified XMonad.Hooks.DynamicLog as DynamicLog
 
-
 import qualified Solarized
-
 
 commandSendKeystrokes keystrokes = "xdotool key " ++ keystrokes
 
@@ -63,12 +62,12 @@ logHook = DynamicLog.dynamicLogWithPP
   , DynamicLog.ppSep             = " "
   }
 
-myManageHook = composeAll
-  [ isFullscreen --> doFullFloat
-  , isDialog     --> doCenterFloat
-  , appName =? "push_setup"           --> doCenterFloat
-  , appName =? "__console____o1____d" --> doCenterFloat
-  , appName =? "__console____o2____d" --> doCenterFloat
-  , appName =? "Download"             --> doCenterFloat
-  , manageHook defaultConfig
+myManageHook = XMonad.ManageHook.composeAll
+  -- [ isFullscreen --> doFullFloat
+  -- , isDialog     --> doCenterFloat
+  [ XMonad.ManageHook.appName XMonad.ManageHook.=? "push_setup"           XMonad.ManageHook.--> XMonad.ManageHook.doFloat
+  , XMonad.ManageHook.appName XMonad.ManageHook.=? "__console____o1____d" XMonad.ManageHook.--> XMonad.ManageHook.doFloat
+  , XMonad.ManageHook.appName XMonad.ManageHook.=? "__console____o2____d" XMonad.ManageHook.--> XMonad.ManageHook.doFloat
+  , XMonad.ManageHook.appName XMonad.ManageHook.=? "Download"             XMonad.ManageHook.--> XMonad.ManageHook.doFloat
+  , XMonad.manageHook XMonad.defaultConfig
   ]

@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# @cryptix WiFi link quality
+
+INTERFACE="wlp2s0"
+
+if [ -n "$(ifconfig "$INTERFACE" | grep 'UP')" ]; then
+  QUALITY=$(iwconfig "$INTERFACE" | grep 'Quality' | cut -d'=' -f2 | cut -d' ' -f1 | cut -d'/' -f1)
+
+  if   [ "$QUALITY" -gt '52' ]; then
+    SPARKLINE=$(spark 1 2 3 4)
+  elif [ "$QUALITY" -gt '35' ]; then
+    SPARKLINE=$(spark 1 2 3 0)
+  elif [ "$QUALITY" -gt '17' ]; then
+    SPARKLINE=$(spark 1 2 0 0)
+  elif [ "$QUALITY" -gt  '7' ]; then
+    SPARKLINE=$(spark 1 0 0 0)
+  else
+    SPARKLINE=$(spark 0 0 0 0)
+  fi
+
+  echo $SPARKLINE
+fi

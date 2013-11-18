@@ -1,15 +1,16 @@
-! xmessage
+! Xmessage
 ! ========
+
+! Xmessage*message*background:         snow
+! Xmessage*Background:                 black
+! Xmessage*Foreground:                 grey85
+! Xmessage.Scrollbar:                  WhenNeeded
 
 Xmessage.form.okay.shapeStyle:         rectangle
 Xmessage.form.okay.background:         #777777
 Xmessage.form.okay.foreground:         snow
-! Xmessage*message*background:         snow
 Xmessage*buttons:                      OK
 Xmessage*defaultButton:                OK
-! Xmessage*Background:                 black
-! Xmessage*Foreground:                 grey85
-! Xmessage.Scrollbar:                  WhenNeeded
 Xmessage.form.message.Scroll:          WhenNeeded
 Xmessage*Font:                         -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 Xmessage*borderWidth:                  0

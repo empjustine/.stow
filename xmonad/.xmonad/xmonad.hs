@@ -46,12 +46,12 @@ main = xmonad
 
        , layoutHook      = XMonad.Hooks.ManageDocks.avoidStruts
                          $ XMonad.Layout.NoBorders.smartBorders
-                         $ XMonad.Layout.ShowWName.showWName' myLayoutHook
+                         $ XMonad.Layout.ShowWName.showWName myLayoutHook
        , handleEventHook = XMonad.Hooks.EwmhDesktops.fullscreenEventHook
      XMonad.ManageHook.<+> XMonad.Hooks.ManageDocks.docksEventHook
        , logHook         = Hooks.logHook
        , manageHook      = XMonad.Hooks.ManageDocks.manageDocks
-     XMonad.ManageHook.<+> Hooks.myManageHook
+     XMonad.ManageHook.<+> myManageHook
 
        , workspaces      = myWorkspaceNames
 
@@ -96,6 +96,7 @@ main = xmonad
       ++
       myWorkspaceKeyBindings
 
+    myManageHook = Hooks.myManageHook
 
     hintedTile  = XMonad.Layout.HintedTile.HintedTile
                     nmaster deltaRatio ReciprocalRatio.goldenRatio

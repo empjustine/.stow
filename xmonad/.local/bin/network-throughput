@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+def network_throughput():
+  lines  = open('/proc/net/dev', 'r').readlines()
+
+  header = {}
+  _, header['rx'], header['tx'] = [s.split() for s in lines[1].split('|')]
+
+  interfaces = {}
+  for line in lines[2:]:
+    if line.find(':') < 0: continue
+    interface, data = [s.split() for s in line.split(':')]
+
+    interfaces[interface[0]] = {
+      'rx': dict(zip(header['rx'], data[:len(header['rx'])])),
+      'tx': dict(zip(header['tx'], data[len(header['rx']):])),
+    }
+
+  return(interfaces)
+
+if __name__ == "__main__":
+  for interface, throughput in network_throughput().items():
+    for side, flow in throughput.items():
+      for state, count in flow.items():
+        print(''.join([interface, '_', side, '_', state, '=', count]))

@@ -1,0 +1,84 @@
+! XTerm
+! =====
+
+
+XTerm*StringConversionWarnings: on
+
+XTerm*utf8:      true
+XTerm*locale:    true
+
+XTerm*saveLines: 9000
+
+XTerm*scrollKey: true
+XTerm*scrollTtyOutput: false
+
+
+! /usr/share/X11/app-defaults/XTerm
+! *VT100.utf8Fonts.font:  -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+! *VT100.utf8Fonts.font2: -misc-fixed-medium-r-normal--8-80-75-75-c-50-iso10646-1
+! *VT100.utf8Fonts.font3: -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso10646-1
+! *VT100.utf8Fonts.font4: -misc-fixed-medium-r-normal--13-120-75-75-c-80-iso10646-1
+! *VT100.utf8Fonts.font5: -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+! *VT100.utf8Fonts.font6: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
+
+*VT100.utf8Fonts.font:    -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+
+!*VT100.utf8Fonts.font: terminus-16
+
+
+! Nice but lacks unicode support this way
+! XTerm*faceName: Inconsolata
+! XTerm*faceSize: 12
+
+
+XTerm*borderWidth: 0
+
+
+*VT100.highlightSelection: true
+
+
+! http://blog.ssokolow.com/archives/2011/05/01/modernizing-xterms-paste/
+!
+! {{{ Quick Reference
+!
+! Scrolling:
+! Scroll Wheel
+! Shift-PgUp/PgDn
+!
+! Copy/Paste:
+! Mouse-Select : Copy to PRIMARY
+! Shift + Mouse-Select: Copy to CLIPBOARD
+!
+! Middle-Click : Paste from PRIMARY
+! Shift + Middle-Click: Paste from CLIPBOARD
+!
+! Ctrl+Shift+V : Paste from CLIPBOARD
+! Ctrl+Alt+Shift+V : Paste from PRIMARY
+!
+! }}}
+!
+! More Konsole/Yakuake-like keybindings:
+*VT100.translations: #override \
+ Shift <Key>Up:   scroll-back(1, line) \n\
+ Shift <Key>Down: scroll-forw(1, line) \n\
+\
+~Shift <Btn1Up>:  select-end(PRIMARY) \n\
+ Shift <Btn1Up>:  select-end(PRIMARY, CLIPBOARD) \n\
+ \
+~Shift <Btn2Up>:  insert-selection(SELECT) \n\
+ Shift <Btn2Up>:  insert-selection(CLIPBOARD)
+\
+ Ctrl ~Meta Shift <KeyPress>V: insert-selection(CLIPBOARD) \n\
+ Ctrl  Meta Shift <KeyPress>V: insert-selection(PRIMARY) \n\
+ Shift       <KeyPress>Insert: insert-selection(PRIMARY) \n\
+\
+ Ctrl Shift <KeyPress>C: select-end(CLIPBOARD) \n\
+
+
+! XTerm*translations: #override \
+!     Shift <KeyPress> Up:      scroll-back(1, line) \n\
+!     Shift <KeyPress> Down:    scroll-forw(1, line) \n\
+!     Shift <KeyPress> Insert:  string(0x1b) string(0x5b) string(2;2~) \n\
+!     Ctrl Shift <KeyPress> C:  select-end(PRIMARY,CLIPBOARD,CUT_BUFFER0) \n\
+!     Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD, CUT_BUFFER0, PRIMARY)
+

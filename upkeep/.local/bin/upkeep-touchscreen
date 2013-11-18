@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#xinput --map-to-output 10 LVDS1
+xinput --map-to-output 'ELAN Touchscreen' LVDS1

@@ -88,3 +88,5 @@ $RECYCLE.BIN/
 
 *.hi
 *.o
+
+*vendor/bundler/*

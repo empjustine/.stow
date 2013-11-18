@@ -18,7 +18,9 @@ call pathogen#helptags()
 " general settings
 " ----------------
 
-set encoding=utf-8
+" set encoding=utf-8
+" eat BOMs
+set encoding=utf-8 nobomb
 
 " Don't run vi modelines
 set modelines=0
@@ -39,38 +41,8 @@ syntax on
 filetype plugin on
 filetype indent on
 
-
-" vim-colors-solarized
-" --------------------
-
-" let g:solarized_menu=0
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans=1
-" let g:solarized_bold = 0
-" let g:solarized_underline = 0
-" let g:solarized_italic = 0
-
-" let g:solarized_termcolors=16
-" colorscheme solarized
-
-
-" vim-powerline
-" -------------
-
-" number of colors used
-" set t_Co=16
-
-" let g:Powerline_symbols = 'unicode'
-
 " always show statusline
 set laststatus=2
-
-
-" powerline
-" ---------
-
-" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-" set t_Co=256
 
 
 " interface settings
@@ -93,6 +65,7 @@ set showcmd
 " vim-powerline
 set cmdheight=2
 
+" show current mode
 set showmode
 
 " blink instead of bell
@@ -101,13 +74,11 @@ set visualbell
 set t_vb=
 
 
-if has('gui_running')
+" if has('gui_running')
   set background=light
-else
-  set background=dark
-endif
-
-" call togglebg#map("<F11>")
+" else
+"   set background=dark
+" endif
 
 
 " paste mode
@@ -120,7 +91,7 @@ set pastetoggle=<F2>
 " ----------------------------
 
 " show line at column 80
-set colorcolumn=80
+" set colorcolumn=80
 
 " show cross at cursor position
 " set cursorline
@@ -148,14 +119,12 @@ set viminfo='100,f1
 " file settings
 " -------------
 
-set noswapfile
-set nobackup
-set nowb
-
 set backupdir=$HOME/.vim/backup
+set directory=$HOME/.vim/swap
+set undodir=$HOME/.vim/undo
+
 set backupcopy=yes                     " keep attributes of original file
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
-set directory=~/.vim/swap,~/tmp,.      " keep swp files under ~/.vim/swap
 
 " Don’t add empty newlines at the end of files
 set binary
@@ -259,6 +228,11 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " --------------------------------
 
 cmap w!! w !sudo tee % >/dev/null
+
+" JavaScript
+" ----------
+
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 
 " Markdown
