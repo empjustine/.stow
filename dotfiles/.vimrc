@@ -31,6 +31,8 @@ set title
 set ttyfast
 
 " hides buffers, instead of closing them.
+" buffers can exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
 

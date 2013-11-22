@@ -1,0 +1,13 @@
+# UNICODE
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
+
+set blink-matching-paren on
+set disable-completion off
+set expand-tilde off
+
+bind "^R" em-inc-search-prev
+bind "\e[A" history-search-backward
+bind "\e[B" history-search-forward
