@@ -1,2 +1,3 @@
-#!/bin/usr
+#!/bin/sh
+
 xinput float 'SynPS/2 Synaptics TouchPad'

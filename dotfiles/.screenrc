@@ -1,0 +1,7 @@
+defutf8 on
+termcapinfo xterm* ti@:te@
+
+defscrollback 30000
+
+startup_message off
+

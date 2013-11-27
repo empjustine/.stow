@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xinput reattach 'ELAN Touchscreen' 'Virtual core pointer'

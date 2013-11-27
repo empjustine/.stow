@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xinput reattach 'SynPS/2 Synaptics TouchPad' 'Virtual core pointer'

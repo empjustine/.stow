@@ -1,0 +1,15 @@
+task :default => [:clone]
+
+task :clone do
+
+  [
+    'https://github.com/tpope/vim-pathogen.git',
+    'git@github.com:nvie/vim-togglemouse.git',
+    'git@github.com:dbakker/vim-indent.git',
+
+    'git@github.com:kien/ctrlp.vim.git',
+    'git@github.com:Lokaltog/vim-easymotion.git',
+  ].each do |git_repository|
+    sh "git clone #{git_repository}" rescue nil
+  end
+end
