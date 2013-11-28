@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=cups
+Exec=pkexec systemctl start cups
+Terminal=false
+Type=Application
+Icon=/usr/share/icons/gnome/scalable/devices/printer-symbolic.svg

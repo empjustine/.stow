@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=mount-private
+Exec=ecryptfs-mount-private
+Terminal=true
+Type=Application
+Icon=/usr/share/icons/gnome/scalable/status/security-low-symbolic.svg

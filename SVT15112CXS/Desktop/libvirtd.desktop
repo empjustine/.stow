@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=libvirtd
+Exec=pkexec systemctl start libvirtd
+Terminal=false
+Type=Application
+Icon=/usr/share/icons/gnome/scalable/devices/computer-symbolic.svg
