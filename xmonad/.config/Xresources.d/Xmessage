@@ -7,8 +7,9 @@
 ! Xmessage.Scrollbar:                  WhenNeeded
 
 Xmessage.form.okay.shapeStyle:         rectangle
-Xmessage.form.okay.background:         #777777
-Xmessage.form.okay.foreground:         snow
+Xmessage.form.okay.background:         #002b36
+Xmessage.form.okay.foreground:         #839496
+
 Xmessage*buttons:                      OK
 Xmessage*defaultButton:                OK
 Xmessage.form.message.Scroll:          WhenNeeded
@@ -16,4 +17,4 @@ Xmessage*Font:                         -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 Xmessage*borderWidth:                  0
 Xmessage*Text.borderWidth:             0
 Xmessage*Command.shapeStyle:           rectangle
-Xmessage*Text.?.cursorColor:           white
+Xmessage*Text.?.cursorColor:           #839496
