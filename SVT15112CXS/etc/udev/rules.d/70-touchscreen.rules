@@ -1,0 +1,3 @@
+SUBSYSTEMS=="usb|platform", ENV{ID_PATH}=="pci-0000:00:1a.0-usb-0:1.1:1.0", KERNEL=="event*", ENV{.INPUT_CLASS}=="", \
+  MODE="0660", GROUP="touchscreen", SYMLINK+="input/touchscreen"
+

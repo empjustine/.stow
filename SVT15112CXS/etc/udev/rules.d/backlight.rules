@@ -1,0 +1,3 @@
+## SET BACKLIGHT
+SUBSYSTEM=="backlight", ACTION=="add", KERNEL=="intel_backlight", ATTR{brightness}="488"
+
