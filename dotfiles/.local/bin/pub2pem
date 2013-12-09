@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec ssh-keygen -f "$1" -e -m PKCS8

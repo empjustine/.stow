@@ -1,0 +1,9 @@
+[Unit]
+Description=Output current external IP address to btsync
+
+[Service]
+User=empjustine
+Nice=19
+IOSchedulingClass=2
+IOSchedulingPriority=7
+ExecStart=/home/empjustine/.local/bin/myip-opendns

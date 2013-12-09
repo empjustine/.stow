@@ -1,0 +1,4 @@
+[unit]
+Description=Daily Timer Target
+StopWhenUnneeded=yes
+

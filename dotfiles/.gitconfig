@@ -2,190 +2,191 @@
 # ============
 
 [user]
-  name = emp.justine
-  email = emp.justine@gmail.com
+	name = emp.justine
+	email = emp.justine@gmail.com
 
 # Color
 # =====
 
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
 
-  pager = true
+	pager = true
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  whitespace = white reverse
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = white reverse
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-  branch = magenta
+	added = yellow
+	changed = green
+	untracked = cyan
+	branch = magenta
 
 # Settings
 # ========
 
 [core]
-  # Recognize mixed spaces and tabs as a whitespace problem
-  whitespace = space-before-tab,trailing-space
+	# Recognize mixed spaces and tabs as a whitespace problem
+	whitespace = space-before-tab,trailing-space
 
-  # System-wide .gitignore file
-  excludesfiles = ~/.config/gitignore
+	# System-wide .gitignore file
+	excludesfiles = ~/.config/gitignore
 
-  editor = vim
-  pager = less -FRSX
+	editor = vim
+	pager = less -FRSX
 
 [format]
-  #pretty = oneline
-  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+	#pretty = oneline
+	pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 
 [push]
-  # default:
-  #   | 'matching' | Push all matching branches (default)               |
-  #   | 'tracking' | Push the current branch to whatever it is tracking |
-  #   | 'current'  | Push the current branch                            |
-  #
-  # When pushing without giving a refspec, push the current branch to its
-  # upstream branch.
-  default = tracking
+	# default:
+	#   | 'matching' | Push all matching branches (default)               |
+	#   | 'tracking' | Push the current branch to whatever it is tracking |
+	#   | 'current'  | Push the current branch                            |
+	#
+	# When pushing without giving a refspec, push the current branch to its
+	# upstream branch.
+	default = tracking
 
 [merge]
-  summary = true
-  verbosity = 1
+	summary = true
+	verbosity = 1
 
-  # Always show a diffstat at the end of a merge
-  stat = true
+	# Always show a diffstat at the end of a merge
+	stat = true
 
-  tool = meld
+	tool = meld
 
-  # summary
-  log = true
+	# summary
+	log = true
 [diff]
-  # Git diff will use "semantic" (i)ndex, (w)ork tree, (c)ommit and (o)bject
-  # instead of a/b/c/d as prefixes for patches
-  mnemonicprefix = true
+	# Git diff will use "semantic" (i)ndex, (w)ork tree, (c)ommit and (o)bject
+	# instead of a/b/c/d as prefixes for patches
+	mnemonicprefix = true
 
-  # Allow git diff to do basic rename and copy detection
-  renames = copies
+	# Allow git diff to do basic rename and copy detection
+	renames = copies
 
-  # Attempt to generate sane diffs
-  algorithm = patience
+	# Attempt to generate sane diffs
+	algorithm = patience
 
 [branch]
-  # When branching off a remote branch, automatically let the local branch
-  # track the remote branch
-  autosetupmerge = true
+	# When branching off a remote branch, automatically let the local branch
+	# track the remote branch
+	autosetupmerge = true
 
 [rerere]
-  # Remember my merges and resolved conflicts
-  # so that identical hunks can be resolved automatically later on
-  #
-  # Source:
-  # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
-  enabled = true
+	# Remember my merges and resolved conflicts
+	# so that identical hunks can be resolved automatically later on
+	#
+	# Source:
+	# http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+	enabled = true
 
 [alias]
-  # Custom porcelain
+	# Custom porcelain
 
-  #File level ignoring
-  assume   = update-index --assume-unchanged
-  unassume = update-index --no-assume-unchanged
-  assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+	#File level ignoring
+	assume   = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
 
-  #checkout whole file
-  checkout-ours   = "!f() { git checkout --ours $@ &&   git add $@; }; f"
-  checkout-theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+	#checkout whole file
+	checkout-ours   = "!f() { git checkout --ours $@ &&   git add $@; }; f"
+	checkout-theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
-  #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
-  recent-branches = !git for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+	#via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
+	recent-branches = !git for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
-  s = status --short --branch
-  b = branch --verbose
-  r = remove --verbose
-  m = mergetool
+	s = status --short --branch
+	b = branch --verbose
+	r = remove --verbose
+	m = mergetool
 
-  cp = cherry-pick -x
+	cp = cherry-pick -x
 
-  # Explicit behaviour of "git reset"
+	# Explicit behaviour of "git reset"
 
-  # Source:
-  # http://blog.plover.com/prog/git-reset.html
-  move-head = reset --soft
-  move-head-reset-index = reset
-  move-head-reset-index-reset-tree = reset --hard
+	# Source:
+	# http://blog.plover.com/prog/git-reset.html
+	move-head = reset --soft
+	move-head-reset-index = reset
+	move-head-reset-index-reset-tree = reset --hard
 
-  file-log = log --patch
+	file-log = log --patch
 
-  create-branch = branch
-  create-branch-move-current-branch = checkout -b
+	create-branch = branch
+	create-branch-move-current-branch = checkout -b
 
-  # Stash manipulation
-  stash-all = stash --include-untracked
-  stash-list = stash list
-  stash-drop = stash drop
-  stash-clear = stash clear
+	# Stash manipulation
+	stash-all = stash --include-untracked
+	stash-list = stash list
+	stash-drop = stash drop
+	stash-clear = stash clear
 
-  diff-unstaged = diff
-  diff-staged = diff --cached
-  diff-commit = diff HEAD^
+	diff-unstaged = diff
+	diff-staged = diff --cached
+	diff-commit = diff HEAD^
 
-  # GitHub
-  network = log --pretty=oneline --graph --branches=* --abbrev-commit --decorate
-  contributors = shortlog --summary --numbered --email
-  releases = tag --list -n3
+	# GitHub
+	network = log --pretty=oneline --graph --branches=* --abbrev-commit --decorate
+	contributors = shortlog --summary --numbered --email
+	releases = tag --list -n3
 
-  remote-url = remote --verbose
-  branch-list = branch --all --verbose
+	remote-url = remote --verbose
+	branch-list = branch --all --verbose
 
-  # mercurial
-  manifest = ls-files -r --name-only --full-tree HEAD
+	# mercurial
+	manifest = ls-files -r --name-only --full-tree HEAD
 
-  ignored = ls-files --others --ignored --exclude-standard
+	ignored = ls-files --others --ignored --exclude-standard
 
-  # log test
-  l = log --topo-order                             --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'
-  ls = log --topo-order --stat                     --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset) %C(blue)%ai (%ar)%C(reset)%n%+B'
-  ld = log --topo-order --stat --patch --full-diff --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset) %C(blue)%ai (%ar)%C(reset)%n%+B'
-  lg = log --topo-order --all --graph              --pretty=format:'%C(yellow)%h%C(reset) %s %C(red)%d%C(reset)%n'
-  lga = log --topo-order --all --graph             --pretty=format:'%C(yellow)%h %C(cyan)%cn%C(reset) %s %C(red)%d%C(reset)%n'
-  lm = log --topo-order --pretty=format:'%s'
+	# log test
+	l = log --topo-order                             --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'
+	ls = log --topo-order --stat                     --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset) %C(blue)%ai (%ar)%C(reset)%n%+B'
+	ld = log --topo-order --stat --patch --full-diff --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset) %C(blue)%ai (%ar)%C(reset)%n%+B'
+	lg = log --topo-order --all --graph              --pretty=format:'%C(yellow)%h%C(reset) %s %C(red)%d%C(reset)%n'
+	lga = log --topo-order --all --graph             --pretty=format:'%C(yellow)%h %C(cyan)%cn%C(reset) %s %C(red)%d%C(reset)%n'
+	lm = log --topo-order --pretty=format:'%s'
 
 [status]
-  submodulesummary = true
+	submodulesummary = true
 
 [gui]
-  recentrepo = /home/empjustine/qi
+	recentrepo = /home/empjustine/qi
 
-  gcwarning = false
-  fontui = -family Inconsolata -size 12 -weight normal -slant roman -underline 0 -overstrike 0
-  fontdiff = -family Inconsolata -size 12 -weight normal -slant roman -underline 0 -overstrike 0
-  commitmsgwidth = 80
-  warndetachedcommit = true
-  spellingdictionary = en_GB
+	gcwarning = false
+	fontui = -family Inconsolata -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Inconsolata -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	commitmsgwidth = 72
+	warndetachedcommit = true
+	spellingdictionary = en_GB
+	recentrepo = /home/empjustine/.config/runcom
 
 [gc]
-  # Disable automatic garbage collection that other git commands may call
-  auto = 0
+	# Disable automatic garbage collection that other git commands may call
+	auto = 0
 
-  # Keep history a hundred times longer
+	# Keep history a hundred times longer
 
-  # How long to keep historical reflog entries
-  reflogExpire = 9000 days
-  reflogexpireUnreachable = 3000 days
-  pruneExpire = 1400 days
+	# How long to keep historical reflog entries
+	reflogExpire = 9000 days
+	reflogexpireUnreachable = 3000 days
+	pruneExpire = 1400 days
 
-  # How long to keep conflicted merges
-  rerereresolved = 6000 days
-  rerereunresolved = 1500 days
+	# How long to keep conflicted merges
+	rerereresolved = 6000 days
+	rerereunresolved = 1500 days
 
