@@ -1,0 +1,4 @@
+#!/bin/sh
+
+touchpadctl-enable
+touchscreenctl-enable

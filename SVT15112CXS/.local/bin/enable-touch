@@ -1,4 +1,0 @@
-#!/bin/sh
-
-enable-touchpad
-enable-touchscreen

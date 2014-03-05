@@ -1,0 +1,4 @@
+#!/bin/sh
+
+touchpadctl-disable
+touchscreenctl-disable
