@@ -4,8 +4,8 @@ fi
 
 # history stuff
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=60000
+SAVEHIST=60000
 setopt append_history
 setopt hist_expire_dups_first
 setopt hist_ignore_space
@@ -71,7 +71,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 _Z_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/z"
-plugins=(z history-substring-search zsh-syntax-highlighting)
+plugins=(z zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 

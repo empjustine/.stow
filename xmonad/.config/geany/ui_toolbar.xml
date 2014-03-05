@@ -16,13 +16,10 @@ at http://www.geany.org/manual/current/index.html#customizing-the-toolbar.
 -->
 	<toolbar name='GeanyToolbar'>
 		<toolitem action='Redo' />
-		<separator/>
 		<toolitem action='NavBack' />
 		<toolitem action='NavFor' />
-		<separator/>
 		<toolitem action='GotoEntry' />
 		<toolitem action='Goto' />
-		<separator/>
 		<toolitem action='Compile' />
 		<toolitem action='Build' />
 		<toolitem action='Run' />

@@ -5,7 +5,7 @@
 # vim:syntax=ruby
 
 
-IRB.conf[:PROMPT_MODE] = :SIMPLE
+#IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 
 # Readline completion
@@ -24,15 +24,16 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 # Bundler
 # -------
 
-require 'rubygems'
-require 'bundler/setup'
+#require 'rubygems'
+#require 'bundler/setup'
 
 
 # FileUtils
 # ---------
 
-require 'fileutils'
-Kernel.extend FileUtils
+#require 'fileutils'
+#Kernel.extend FileUtils
+
 
 # Verbosity
 # ---------
@@ -41,6 +42,8 @@ Kernel.extend FileUtils
 # `false` => `1` => default
 # `true`  => `2` => verbose
 
-$VERBOSE = true
-$DEBUG = true
+#$VERBOSE = true
+#$DEBUG = true
+
+puts '.irbrc ok'
 

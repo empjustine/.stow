@@ -26,6 +26,7 @@ set ttyfast
 set hidden
 set spelllang=en_gb
 
+
 " interface settings
 " ------------------
 
@@ -152,10 +153,12 @@ let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 let hs_highlight_boolean = 1
 
+
 " Git
 " ---
 
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 
 " ctrlp
 " -----

@@ -60,7 +60,7 @@ main = xmonad
 
        , borderWidth        = myBorderWidth
        } `XMonad.Util.EZConfig.additionalKeys`
-       myKeyBindings
+       myKeyBindings `XMonad.Util.EZConfig.additionalKeysP` myExtraKeyBindings
   where
     myTerminal :: String
     myTerminal  = "/usr/bin/xterm"
@@ -95,6 +95,15 @@ main = xmonad
       ]
       ++
       myWorkspaceKeyBindings
+
+    myExtraKeyBindings = 
+      [ ("<XF86AudioRaiseVolume>",  spawn "amixer sset Master 2%+")
+      , ("<XF86AudioLowerVolume>",  spawn "amixer sset Master 2%-")
+      , ("<XF86AudioMute>",         spawn "amixer sset Master toggle")
+      , ("<XF86MonBrightnessUp>",   spawn "intel_backlight 100")
+      , ("<XF86MonBrightnessDown>", spawn "intel_backlight 20")
+      , ("<XF86Display>",           spawn "intel_backlight 1")
+      ]
 
     myManageHook = Hooks.myManageHook
 
