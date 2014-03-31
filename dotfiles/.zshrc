@@ -1,7 +1,3 @@
-if [ -f "$HOME/.profile" ]; then
-  . "$HOME/.profile"
-fi
-
 # history stuff
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=60000
