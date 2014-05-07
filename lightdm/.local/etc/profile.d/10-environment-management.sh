@@ -9,5 +9,3 @@ fi
 if [ -d "$HOME/.local/bin" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
-
-export PYTHONDOCS=/usr/share/doc/python2/html/
