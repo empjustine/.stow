@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=cats-pc-01@enp14s0
-Exec=pkexec macchanger --mac=18:a9:05:48:53:31 enp14s0
-Terminal=false
-Type=Application
-Icon=/usr/share/icons/gnome/scalable/status/network-wired-symbolic.svg

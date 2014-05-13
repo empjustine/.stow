@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=NetworkManager
-Exec=gksudo systemctl start NetworkManager
-Terminal=false
-Type=Application
-Icon=/usr/share/icons/gnome/scalable/apps/preferences-system-network-symbolic.svg

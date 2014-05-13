@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=umount-private
-Exec=ecryptfs-umount-private
-Terminal=true
-Type=Application
-Icon=/usr/share/icons/gnome/scalable/status/security-high-symbolic.svg
