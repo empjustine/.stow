@@ -1,0 +1,6 @@
+if [ -d "$HOME/.local/etc/xprofile.d" ]; then
+  for profile in $HOME/.local/etc/xprofile.d/*.sh; do
+    [ -r "$profile" ] && . "$profile"
+  done
+  unset profile
+fi
