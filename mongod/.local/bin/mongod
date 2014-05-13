@@ -1,0 +1,3 @@
+#!/bin/sh
+mkdir -p "$HOME/.local/var/lib/mongodb"
+exec /usr/bin/mongod --config "$HOME/.local/etc/mongodb.conf"

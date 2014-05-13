@@ -1,7 +1,6 @@
 #!/bin/sh
 
-MYIP_FILE=/home/empjustine/btsync/CRITICORUM.myip
+MYIP_FILE=$HOME/btsync/CRITICORUM.myip
 
 #dig +short @resolver1.opendns.com myip.opendns.com
 dig @208.67.222.220 myip.opendns.com >$MYIP_FILE
-
