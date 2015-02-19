@@ -1,0 +1,16 @@
+#!/bin/sh
+
+TRANSMISSION_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/transmission"
+TRANSMISSION_DAEMON_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/transmission-daemon"
+
+
+if [ -d "$TRANSMISSION_CONFIG" ]; then
+    TRANSMISSION_HOME=$TRANSMISSION_CONFIG
+elif [ -d "$TRANSMISSION_DAEMON_CONFIG" ]; then
+    TRANSMISSION_HOME=$TRANSMISSION_DAEMON_CONFIG
+else
+    printf "%s" "Unable to infer TRANSMISSION_HOME."
+    exit 1
+fi
+
+/usr/bin/transmission-daemon
