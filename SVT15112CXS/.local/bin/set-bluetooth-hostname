@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pkexec hciconfig hci0 name 'criticorum'
