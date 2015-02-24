@@ -1,0 +1,3 @@
+#!/bin/sh
+
+virsh net-define /usr/share/libvirt/networks/default.xml
